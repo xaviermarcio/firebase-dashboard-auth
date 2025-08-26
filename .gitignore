@@ -1,0 +1,7 @@
+# Arquivos de configuração sensíveis
+config.js
+.env
+
+# Pastas do sistema
+node_modules/
+.DS_Store

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Firebase Dashboard Auth • Início</title>
+
+  <!-- Segurança: CSP + Referrer-Policy -->
+  <meta http-equiv="Content-Security-Policy"
+        content="
+          default-src 'self';
+          script-src 'self' https://cdn.tailwindcss.com https://www.gstatic.com;
+          style-src 'self' 'unsafe-inline';
+          img-src 'self' data:;
+          font-src 'self' https://fonts.gstatic.com;
+          connect-src 'self' https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://securetoken.googleapis.com https://www.googleapis.com https://firebasestorage.googleapis.com https://*.googleapis.com;
+          frame-ancestors 'none';
+          object-src 'none';
+          base-uri 'self';
+          upgrade-insecure-requests;
+        ">
+  <meta name="referrer" content="no-referrer" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Tailwind (CDN). Mantemos para agilidade no dev; em produção prefira bundle próprio. -->
+  <script src="https://cdn.tailwindcss.com" crossorigin="anonymous"></script>
+</head>
+<body class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
+  <main class="w-full max-w-md bg-white rounded-2xl shadow-lg p-6">
+    <h1 class="text-2xl font-bold text-center">Firebase Dashboard Auth</h1>
+    <p class="text-gray-600 text-center mt-2">Base pronta. Siga para Login ou Cadastro.</p>
+
+    <div class="mt-6 grid grid-cols-2 gap-3">
+      <a href="./login.html"
+         class="text-center rounded-lg py-2 bg-blue-600 text-white hover:bg-blue-700">Login</a>
+      <a href="./register.html"
+         class="text-center rounded-lg py-2 bg-emerald-600 text-white hover:bg-emerald-700">Cadastro</a>
+    </div>
+
+    <div id="status" class="mt-6 text-sm text-gray-700 bg-gray-50 rounded-lg p-3"></div>
+  </main>
+
+  <!-- JS separado (faz apenas o “health check” do Firebase) -->
+  <script type="module" src="./js/index.js"></script>
+</body>
+</html>

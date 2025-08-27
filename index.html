@@ -1,14 +1,70 @@
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Dashboard</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bahiaBlue: "#0046AD",
+            bahiaRed: "#E30613",
+            bahiaYellow: "#FFD100",
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="min-h-screen bg-gray-50 text-gray-800 antialiased" >
 
-  import firebaseConfig from "./config.js";
+  <!-- Navbar -->
+  <header class="bg-bahiaBlue">
+    <div class="mx-auto mx-w-6xl px-4 h-16 flex items-center justify-between text-white">
+      <a href="./" class="inline-flex items-center gap-2 font-semibold" >
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-bahiaYellow text-bahiaBlue font-bold">FD</span>
+        <span>Firebase Dashboard</span>
+      </a>
+      <nav class="flex items-center gap-3"">
+        <a href="./login.html" class="hover:text-bahiaYellow">Login</a>
+        <a href="./register.html"
+          class="rounded-lg bg-bahiaRed px-4 py-2 font-semibold text-white:bg-bahiaYellow hover:text-bahiaBlue transition"
+           >
+          Cadastrar
+        </a>
+      </nav>
+    </div>
+  </header>
 
-  // Inicializa Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-  const db = getFirestore(app);
+  <!-- Hero -->
+  <main class="mx-auto max-w-6xl px-4 py-20 text-center">
+    <h1 class="text-4xl font-extrabold tracking-light text-bahiaBlue">Bem-vindo</h1>
+    <p class="mt-3 text-gray-700">Acesse sua conta ou crie um cadastro para continuar.</p>
+    <div class="mt-6 flex justify-center gap-5" >
+      <a href="./login.html"
+         class=" rounded-xl bg-bahiaBlue px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+        Entrar
+      </a>
+      <a href="./register.html"
+         class="rounded-xl bg-bahiaRed px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transation">
+        Cadastrar
+      </a>
+    </div>
+  </main>
 
-  console.log("🔥 Firebase conectado com sucesso!");
-</script>
+  <!-- Footer -->
+  <footer class="bg-bahiaBlue text-white" >
+    <div >
+      <span>© <span id="year"></span> Firebase Dashboard</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

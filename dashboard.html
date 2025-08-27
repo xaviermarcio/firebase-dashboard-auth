@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase Dashboard</title>
+  <title>Dashboard - Firebase Dashboard</title>
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -29,39 +29,28 @@
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-bahiaYellow text-bahiaBlue font-bold">FD</span>
         <span>Firebase Dashboard</span>
       </a>
-      <nav class="flex items-center gap-3">
-        <a href="./login.html" class="hover:text-bahiaYellow">Login</a>
-        <a href="./register.html"
-           class="rounded-lg bg-bahiaRed px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-          Cadastrar
-        </a>
-      </nav>
+      <button id="logoutBtn"
+              class="rounded-lg bg-bahiaRed px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+        Sair
+      </button>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main class="mx-auto max-w-6xl px-4 py-20 text-center">
-    <h1 class="text-4xl font-extrabold tracking-tight text-bahiaBlue">Bem-vindo</h1>
-    <p class="mt-3 text-gray-600">Acesse sua conta ou crie um cadastro para continuar.</p>
-    <div class="mt-6 flex justify-center gap-3">
-      <a href="./login.html"
-         class="rounded-xl bg-bahiaBlue px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-        Entrar
-      </a>
-      <a href="./register.html"
-         class="rounded-xl bg-bahiaRed px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-        Cadastrar
-      </a>
-    </div>
+  <!-- Conteúdo -->
+  <main class="mx-auto max-w-3xl px-4 py-16 text-center">
+    <h1 class="text-3xl font-bold text-bahiaBlue mb-4">Área Restrita</h1>
+    <p id="userInfo" class="text-lg text-gray-700">Carregando usuário...</p>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-bahiaBlue text-white">
+  <footer class="bg-bahiaBlue text-white mt-auto">
     <div class="mx-auto max-w-6xl px-4 py-6 text-sm flex justify-between items-center">
       <span>© <span id="year"></span> Firebase Dashboard</span>
+      <span class="font-semibold text-bahiaYellow"></span>
     </div>
   </footer>
 
+  <script type="module" src="./js/dashboard.js"></script>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>

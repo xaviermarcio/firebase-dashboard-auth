@@ -97,6 +97,9 @@ Você não precisa criar tela de redefinição, só uma tela simples( já criada
 ### 📝 Tela de Cadastro  
 ![Cadastro](/assets/images/tela_cadastro.png)  
 
+<p align="center"><i>
+Checklist dinâmico de senha
+</i></p>
 ### 📊 Dashboard (após login)  
 ![Dashboard](/assets/images/tela_apos_login.png)  
 
@@ -110,3 +113,9 @@ Você não precisa criar tela de redefinição, só uma tela simples( já criada
 ## 👨‍💻 Autor  
 
 Projeto desenvolvido por **Márcio Xavier** 🚀  
+
+## 🚀 Deploy
+O projeto está disponível em produção no Firebase Hosting:
+
+👉 [https://fir-dashboard-auth-18644.web.app](https://fir-dashboard-auth-18644.web.app)
+

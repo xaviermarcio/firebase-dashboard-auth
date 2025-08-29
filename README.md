@@ -114,8 +114,5 @@ Checklist dinâmico de senha
 
 Projeto desenvolvido por **Márcio Xavier** 🚀  
 
-## 🚀 Deploy
-O projeto está disponível em produção no Firebase Hosting:
 
-👉 [https://fir-dashboard-auth-18644.web.app](https://fir-dashboard-auth-18644.web.app)
 

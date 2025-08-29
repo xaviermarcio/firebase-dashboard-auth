@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Firebase Dashboard</title>
+  <title>Recuperar Senha - Firebase Dashboard</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -28,32 +28,24 @@
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-bahiaYellow text-bahiaBlue font-bold">FD</span>
         <span>Firebase Dashboard</span>
       </a>
-      <a href="./register.html"
-         class="rounded-lg bg-bahiaRed px-3 sm:px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-        Criar Conta
+      <a href="./login.html"
+         class="rounded-lg bg-bahiaBlue px-3 sm:px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+        Voltar ao Login
       </a>
     </div>
   </header>
 
-  <!-- Form -->
+  <!-- Reset Form -->
   <main class="flex-grow flex items-center justify-center px-4 py-10">
     <div class="w-full max-w-md bg-white p-6 rounded-xl shadow">
-      <h1 class="text-2xl font-bold text-center text-bahiaBlue">Entrar</h1>
-      <form id="loginForm" class="mt-6 space-y-4">
-        <input type="email" id="email" placeholder="Digite seu email" required class="w-full border rounded-lg px-3 py-2">
-        <input type="password" id="password" placeholder="Digite sua senha" required class="w-full border rounded-lg px-3 py-2">
+      <h1 class="text-2xl font-bold text-center text-bahiaBlue">Recuperar Senha</h1>
+      <form id="resetForm" class="mt-6 space-y-4">
+        <input type="email" id="resetEmail" placeholder="Digite seu email" required class="w-full border rounded-lg px-3 py-2">
         <p id="feedback" class="text-center text-sm"></p>
-        <button type="submit" class="w-full bg-bahiaRed text-white py-2 rounded-lg font-semibold hover:bg-bahiaYellow hover:text-bahiaBlue transition">Entrar</button>
+        <button type="submit" class="w-full bg-bahiaRed text-white py-2 rounded-lg font-semibold hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+          Enviar Link de Recuperação
+        </button>
       </form>
-      <p class="mt-2 text-center">
-        <a href="reset.html" class="text-bahiaBlue font-semibold hover:underline">
-          Esqueci minha senha
-        </a>
-      </p>
-      <p class="mt-4 text-center text-sm text-gray-600">
-        Não tem conta?
-        <a href="register.html" class="text-bahiaBlue font-semibold hover:underline">Cadastre-se</a>
-      </p>
     </div>
   </main>
 
@@ -67,6 +59,6 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
-  <script type="module" src="./js/login.js"></script>
+  <script type="module" src="./js/reset.js"></script>
 </body>
 </html>

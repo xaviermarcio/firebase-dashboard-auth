@@ -85,6 +85,15 @@ Este projeto utiliza um **.gitignore** para evitar que chaves sensíveis (`confi
 ### 🔑 Tela de Login  
 ![Login](/assets/images/tela_login.png)  
 
+### 🔑 Tela de recuperar senha  
+![Recuperar Senha](/assets/images/tela_recupera_senha.png)  
+
+<p align="center"><i>
+O Firebase já traz essa funcionalidade pronta via método.<br>
+Isso dispara um email automático para o usuário redefinir a senha.<br>
+Você não precisa criar tela de redefinição, só uma tela simples( já criada reset.html) onde ele digita o email.
+</i></p>
+
 ### 📝 Tela de Cadastro  
 ![Cadastro](/assets/images/tela_cadastro.png)  
 

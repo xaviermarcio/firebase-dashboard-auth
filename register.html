@@ -2,94 +2,83 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criar Conta - Firebase Dashboard</title>
-  <!-- Tailwind CDN -->
+  <title>Criar Conta</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bahiaBlue: "#0046AD",
-            bahiaRed: "#E30613",
-            bahiaYellow: "#FFD100",
-          }
-        }
-      }
-    }
-  </script>
 </head>
-<body class="min-h-screen bg-gray-50 text-slate-800 antialiased">
+<body class="bg-gray-100 flex flex-col min-h-screen">
 
   <!-- Navbar -->
-  <header class="bg-bahiaBlue">
-    <div class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between text-white">
-      <a href="./" class="inline-flex items-center gap-2 font-semibold">
-        <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-bahiaYellow text-bahiaBlue font-bold">FD</span>
-        <span>Firebase Dashboard</span>
-      </a>
-      <nav class="flex items-center gap-3">
-        <a href="./index.html" class="hover:text-bahiaYellow">Início</a>
-        <a href="./login.html"
-           class="rounded-lg bg-bahiaRed px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-          Entrar
-        </a>
-      </nav>
+  <nav class="bg-blue-800 text-white px-6 py-3 flex justify-between items-center">
+    <div class="flex items-center space-x-2">
+      <div class="bg-yellow-400 text-blue-900 font-bold px-2 py-1 rounded-lg">FD</div>
+      <span class="font-semibold">Firebase Dashboard</span>
     </div>
-  </header>
+    <a href="login.html" class="bg-white text-blue-800 px-4 py-2 rounded-lg font-medium hover:bg-gray-200">
+      Entrar
+    </a>
+  </nav>
 
-  <!-- Formulário -->
-  <main class="mx-auto max-w-lg px-4 py-16">
-    <h1 class="text-3xl font-bold text-center text-bahiaBlue mb-8">Criar Conta</h1>
-    <form id="registerForm" class="space-y-4 bg-white shadow-md rounded-lg p-6">
-      
-      <!-- Nome e Sobrenome -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <input type="text" id="firstName" placeholder="Nome"
-               class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
-        <input type="text" id="lastName" placeholder="Sobrenome"
-               class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
-      </div>
+  <!-- Conteúdo -->
+  <div class="flex-grow flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+      <h1 class="text-2xl font-bold text-center text-blue-700 mb-6">Criar Conta</h1>
 
-      <!-- Email -->
-      <input type="email" id="email" placeholder="E-mail"
-             class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
-      <input type="email" id="confirmEmail" placeholder="Confirmar e-mail"
-             class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
+      <form id="registerForm" class="space-y-4">
+        <div class="flex space-x-2">
+          <input type="text" id="firstName" placeholder="Primeiro nome" required
+            class="w-1/2 border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+          <input type="text" id="lastName" placeholder="Sobrenome" required
+            class="w-1/2 border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+        </div>
 
-      <!-- Senha -->
-      <input type="password" id="password" placeholder="Senha"
-             class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
-      <input type="password" id="confirmPassword" placeholder="Confirmar senha"
-             class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-bahiaBlue outline-none" required>
+        <div>
+          <input type="email" id="email" placeholder="Digite seu email" required
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+        </div>
 
-      <!-- Checklist da Senha -->
-      <div id="passwordChecklist" class="text-sm mt-2 space-y-1">
-        <p id="length" class="text-red-600">✘ Pelo menos 8 caracteres</p>
-        <p id="uppercase" class="text-red-600">✘ Uma letra maiúscula</p>
-        <p id="lowercase" class="text-red-600">✘ Uma letra minúscula</p>
-        <p id="number" class="text-red-600">✘ Um número</p>
-        <p id="special" class="text-red-600">✘ Um caractere especial</p>
-      </div>
+        <div>
+          <input type="email" id="confirmEmail" placeholder="Confirme seu email" required
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+        </div>
 
-      <button type="submit"
-              class="w-full rounded-lg bg-bahiaBlue px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
-        Cadastrar
-      </button>
-    </form>
-    <p class="mt-4 text-sm text-center">
-      Já tem conta? <a href="login.html" class="text-bahiaRed hover:underline">Entrar</a>
-    </p>
-    <div id="feedback" class="mt-4 text-center text-sm"></div>
-  </main>
+        <div>
+          <input type="password" id="password" placeholder="Digite sua senha" required
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+        </div>
 
-  <!-- Footer -->
-  <footer class="bg-bahiaBlue text-white mt-auto">
-    <div class="mx-auto max-w-6xl px-4 py-6 text-sm flex justify-between items-center">
-      <span>© <span id="year"></span> Firebase Dashboard</span>
-      <span class="font-semibold text-bahiaYellow">Paleta Casas Bahia</span>
+        <div>
+          <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required
+            class="w-full border border-gray-300 rounded-lg p-2 focus:ring-2 focus:ring-red-600 focus:outline-none">
+        </div>
+
+        <p id="feedback" class="text-center text-sm"></p>
+
+        <!-- Checklist oculto -->
+        <div id="passwordChecklist" class="hidden">
+          <ul class="text-sm space-y-1">
+            <li id="length" class="text-red-600">✘ Pelo menos 8 caracteres</li>
+            <li id="uppercase" class="text-red-600">✘ Uma letra maiúscula</li>
+            <li id="lowercase" class="text-red-600">✘ Uma letra minúscula</li>
+            <li id="number" class="text-red-600">✘ Um número</li>
+            <li id="special" class="text-red-600">✘ Um caractere especial</li>
+          </ul>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+          Criar Conta
+        </button>
+      </form>
+      <p class="text-center text-sm text-gray-600 mt-4">
+        Caso tenha cadastro:
+        <a href="login.html" class="text-blue-700 hover:underline font-semibold">Login</a>
+      </p>
     </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="bg-blue-800 text-white text-center py-3">
+    © 2025 Firebase Dashboard
   </footer>
 
   <script type="module" src="./js/register.js"></script>

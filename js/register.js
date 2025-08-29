@@ -1,15 +1,14 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import firebaseConfig from "../config.js";
+// js/register.js
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { app } from "../config.js";
 
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Seletores
 const form = document.getElementById("registerForm");
 const feedback = document.getElementById("feedback");
 const passwordInput = document.getElementById("password");
+const checklistContainer = document.getElementById("passwordChecklist");
 
 // Checklist
 const checklist = {
@@ -29,26 +28,64 @@ function showMsg(msg, type = "error") {
 // Validação dinâmica da senha
 passwordInput.addEventListener("input", () => {
   const value = passwordInput.value;
+  let hasError = false;
 
   // Comprimento mínimo
-  checklist.length.textContent = value.length >= 8 ? "✔ Pelo menos 8 caracteres" : "✘ Pelo menos 8 caracteres";
-  checklist.length.className = value.length >= 8 ? "text-green-600" : "text-red-600";
+  if (value.length >= 8) {
+    checklist.length.textContent = "✔ Pelo menos 8 caracteres";
+    checklist.length.className = "text-green-600";
+  } else {
+    checklist.length.textContent = "✘ Pelo menos 8 caracteres";
+    checklist.length.className = "text-red-600";
+    hasError = true;
+  }
 
   // Maiúscula
-  checklist.uppercase.textContent = /[A-Z]/.test(value) ? "✔ Uma letra maiúscula" : "✘ Uma letra maiúscula";
-  checklist.uppercase.className = /[A-Z]/.test(value) ? "text-green-600" : "text-red-600";
+  if (/[A-Z]/.test(value)) {
+    checklist.uppercase.textContent = "✔ Uma letra maiúscula";
+    checklist.uppercase.className = "text-green-600";
+  } else {
+    checklist.uppercase.textContent = "✘ Uma letra maiúscula";
+    checklist.uppercase.className = "text-red-600";
+    hasError = true;
+  }
 
   // Minúscula
-  checklist.lowercase.textContent = /[a-z]/.test(value) ? "✔ Uma letra minúscula" : "✘ Uma letra minúscula";
-  checklist.lowercase.className = /[a-z]/.test(value) ? "text-green-600" : "text-red-600";
+  if (/[a-z]/.test(value)) {
+    checklist.lowercase.textContent = "✔ Uma letra minúscula";
+    checklist.lowercase.className = "text-green-600";
+  } else {
+    checklist.lowercase.textContent = "✘ Uma letra minúscula";
+    checklist.lowercase.className = "text-red-600";
+    hasError = true;
+  }
 
   // Número
-  checklist.number.textContent = /\d/.test(value) ? "✔ Um número" : "✘ Um número";
-  checklist.number.className = /\d/.test(value) ? "text-green-600" : "text-red-600";
+  if (/\d/.test(value)) {
+    checklist.number.textContent = "✔ Um número";
+    checklist.number.className = "text-green-600";
+  } else {
+    checklist.number.textContent = "✘ Um número";
+    checklist.number.className = "text-red-600";
+    hasError = true;
+  }
 
   // Caractere especial
-  checklist.special.textContent = /[\W_]/.test(value) ? "✔ Um caractere especial" : "✘ Um caractere especial";
-  checklist.special.className = /[\W_]/.test(value) ? "text-green-600" : "text-red-600";
+  if (/[\W_]/.test(value)) {
+    checklist.special.textContent = "✔ Um caractere especial";
+    checklist.special.className = "text-green-600";
+  } else {
+    checklist.special.textContent = "✘ Um caractere especial";
+    checklist.special.className = "text-red-600";
+    hasError = true;
+  }
+
+  // Exibe checklist se houver erro, oculta se estiver tudo certo
+  if (value.length > 0 && hasError) {
+    checklistContainer.classList.remove("hidden");
+  } else {
+    checklistContainer.classList.add("hidden");
+  }
 });
 
 // Função auxiliar para validar senha forte
@@ -83,7 +120,7 @@ form.addEventListener("submit", async (e) => {
     await updateProfile(cred.user, { displayName: `${firstName} ${lastName}` });
 
     showMsg("✅ Conta criada com sucesso!", "success");
-    setTimeout(() => (window.location.href = "login.html"), 1500);
+    setTimeout(() => (window.location.href = "login.html"), 2000);
   } catch (err) {
     showMsg("❌ Erro: " + (err.code || err.message));
   }

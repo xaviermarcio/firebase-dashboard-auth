@@ -1,9 +1,7 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
-import firebaseConfig from "../config.js";
+// js/login.js
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+import { app } from "../config.js";
 
-// Inicializa Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
 // Seletores
@@ -16,11 +14,6 @@ function showMsg(msg, type = "error") {
   feedback.className = type === "error" ? "text-red-600" : "text-green-600";
 }
 
-// Validação de e-mail
-function isValidEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
-
 // Submit do formulário
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -28,14 +21,18 @@ form.addEventListener("submit", async (e) => {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
 
-  if (!isValidEmail(email)) return showMsg("E-mail inválido.");
-  if (password.length < 6) return showMsg("A senha deve ter pelo menos 6 caracteres.");
-
   try {
     await signInWithEmailAndPassword(auth, email, password);
     showMsg("✅ Login realizado com sucesso!", "success");
-    setTimeout(() => (window.location.href = "dashboard.html"), 1000);
+    setTimeout(() => (window.location.href = "dashboard.html"), 1500);
   } catch (err) {
-    showMsg("❌ Erro: " + (err.code || err.message));
+    // Alguns erros comuns
+    if (err.code === "auth/invalid-credential" || err.code === "auth/wrong-password") {
+      showMsg("❌ E-mail ou senha incorretos.");
+    } else if (err.code === "auth/user-not-found") {
+      showMsg("❌ Usuário não encontrado.");
+    } else {
+      showMsg("❌ Erro: " + (err.code || err.message));
+    }
   }
 });

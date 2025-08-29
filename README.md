@@ -57,9 +57,9 @@ firebase-dashboard-auth/
 - [x] Tela de Cadastro com checklist de senha dinâmica  
 - [x] Dashboard protegido (somente logado acessa)  
 - [x] Logout integrado ao Firebase  
-- [ ] Recuperação de senha  
+- [x] Recuperação de senha  
 - [ ] Integração com Firestore para dados extras  
-- [ ] Deploy no Firebase Hosting  
+- [x] Deploy no Firebase Hosting  
 
 ---
 

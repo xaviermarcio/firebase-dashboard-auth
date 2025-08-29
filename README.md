@@ -91,6 +91,11 @@ Este projeto utiliza um **.gitignore** para evitar que chaves sensíveis (`confi
 ### 📊 Dashboard (após login)  
 ![Dashboard](/assets/images/tela_apos_login.png)  
 
+### 🔑 Tela de Login - Mobile  
+![Login](/assets/images/mobile_login.jpg)  
+
+### 📝 Tela de Cadastro  - Mobile
+![Cadastro](/assets/images/mobile_cadastro.jpg)  
 ---
 
 ## 👨‍💻 Autor  

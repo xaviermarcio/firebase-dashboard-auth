@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Firebase Dashboard</title>
-  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -20,19 +19,22 @@
     }
   </script>
 </head>
-<body class="min-h-screen bg-gray-50 text-slate-800 antialiased">
+<body class="min-h-screen flex flex-col bg-gray-50 text-slate-800 antialiased">
 
   <!-- Navbar -->
   <header class="bg-bahiaBlue">
-    <div class="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between text-white">
+    <div class="mx-auto max-w-6xl px-2 sm:px-4 h-16 flex items-center justify-between text-white">
       <a href="./" class="inline-flex items-center gap-2 font-semibold">
         <span class="inline-flex h-8 w-8 items-center justify-center rounded-xl bg-bahiaYellow text-bahiaBlue font-bold">FD</span>
         <span>Firebase Dashboard</span>
       </a>
-      <nav class="flex items-center gap-3">
-        <a href="./login.html" class="hover:text-bahiaYellow">Login</a>
+      <nav class="flex items-center gap-2 sm:gap-3">
+        <a href="./login.html"
+           class="rounded-lg bg-bahiaBlue px-3 sm:px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+          Login
+        </a>
         <a href="./register.html"
-           class="rounded-lg bg-bahiaRed px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
+           class="rounded-lg bg-bahiaRed px-3 sm:px-4 py-2 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
           Cadastrar
         </a>
       </nav>
@@ -40,10 +42,10 @@
   </header>
 
   <!-- Hero -->
-  <main class="mx-auto max-w-6xl px-4 py-20 text-center">
-    <h1 class="text-4xl font-extrabold tracking-tight text-bahiaBlue">Bem-vindo</h1>
-    <p class="mt-3 text-gray-600">Acesse sua conta ou crie um cadastro para continuar.</p>
-    <div class="mt-6 flex justify-center gap-3">
+  <main class="flex-grow mx-auto max-w-6xl px-4 py-10 sm:py-20 text-center space-y-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-bahiaBlue">Bem-vindo</h1>
+    <p class="text-gray-600">Acesse sua conta ou crie um cadastro para continuar.</p>
+    <div class="flex justify-center gap-3">
       <a href="./login.html"
          class="rounded-xl bg-bahiaBlue px-5 py-2.5 font-semibold text-white hover:bg-bahiaYellow hover:text-bahiaBlue transition">
         Entrar
